@@ -14,12 +14,12 @@ app.get("/api/compliment", (req, res) => {
 					 "Your Javascript skills are stellar.",
   ];
 
-  // choose random compliment
+ 
   let randomIndex = Math.floor(Math.random() * compliments.length);
   let randomCompliment = compliments[randomIndex];
 
   res.status(200).send(randomCompliment);
-
+  
 });
 
 app.get("/api/fortune", (req, res) => {
@@ -29,7 +29,6 @@ app.get("/api/fortune", (req, res) => {
            "A soft voice may be awfully persuasive.",
   ];
 
-  // choose random compliment
   let randomIndex2 = Math.floor(Math.random() * fortune.length);
   let randomFortune = fortune[randomIndex2];
 
@@ -37,6 +36,29 @@ app.get("/api/fortune", (req, res) => {
 
 });
 
+app.post('/api/encouragement', (req, res) => {
+  let {meaning, message} = req.body;
+  res.status(200).send(`Here's a message for you: ${message}, ${meaning}`);
+})
+
+app.post('/api/inspiration', (req, res) => {
+  let {meaning, message} = req.body;
+  res.status(200).send(`Here's a message for you: ${message},${meaning}`);
+})
+
+app.post('/api/help', (req, res) => {
+  let {meaning, message} = req.body;
+  res.status(200).send(`Here's a message for you: ${message}, ${meaning}`);
+})
+
+app.delete('/api/help/:message', (req, res) => {
+   res.status(200).send(`Message deleted! You can refresh now.`);
+})
+
+app.get('/api/helpInput/', (req, res) => {
+  let {paramInput2} = req.body;
+  res.status(200).send(`You spoke it into existance. Great job. ${paramInput2}`);
+})
 
 
 app.listen(4000, () => console.log("Server running on 4000"));
