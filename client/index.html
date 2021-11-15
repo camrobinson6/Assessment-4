@@ -2,82 +2,81 @@
 <html>
   <head>
     <title>Back End Assessment</title>
-    <link href="selectbox.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
   </head>
-
-  <header class="page-header">
-    <h1>How can I obtain my Goals!</h1>
-</header>
-<br>
-
-  <form>
-      <label for="name">Goals:</label>
-      <input type="text" id="name" placeholder="Goals" autocomplete="off">
-
-      <button id="btnAdd">Add</button>
-
-      <label for="list">Goals List:</label>
-      <select id="list" name="list" multiple>
-
-      </select>
-      <button id="btnRemove">Remove Selected goals</button>
-  </form>
-
-<br>
-<p><h3>Encouraging links:<h3></p>
-<ul>
-  <li><a href="https://www.betterup.com/blog/how-to-set-goals-and-achieve-them">Achieving goals.</a></li>
-  <li><a href="https://www.happierhuman.com/encouraging-quotes-men/">Encouraging Quotes!</a></li>
-</ul>
-<form action="signup.html" method="post" id="signup">
-	<h2>Sign Up</h2>
-	<div class="field">
-		<label for="name">Name:</label>
-		<input type="text" id="name" name="name" placeholder="Enter your fullname" />
-		<small></small>
-	</div>
-	<div class="field">
-		<label for="email">Email:</label>
-		<input type="text" id="email" name="email" placeholder="Enter your email address" />
-		<small></small>
-	</div>
-	<button type="submit">Subscribe</button>
-</form>
-
-<br>
-<br>
-<br>
   <body class="container">
-    <button id="complimentButton">Get a compliment</button>
-    <button id="fortuneButton">Get your fortunes</button>
-    
+    <header>
+    <h1>Fortune or Compliment.....Choose</h1>
+  </header>
+    <br>
+    <h3>Looking for the right compliment, click below.</h3>
+    <button id="complimentButton">Get a Compliment</button>
+    <h3>Your fortune awaits you, click below.</h3>
+    <button id="fortuneButton">Get your Fortune</button>
+
+  <header>
+    <h1 class="encourage-title">Encouragement is what you need!</h1>
+  </header>
+  <main>
+    <section class="Request-Area">
+      <section class="request-type">
+        <br>
+        <h3>Messages of Encouragement: Go for it.</h3>
+        <button id="getEncouragement">Encouragement</button>
+        <button id="getInspiration">Inspiration</button>
+        <button id="getHelp">Help</button>
+        <br>
+        <section class="request-type">
+          <h3>Speak it into existance: You got this.</h3>
+          <button id="getParamSubmit">Submit</button>
+        </section>
+        <br>
+        <section class="request-type">
+        <button id="getQuerySubmit">Refresh</button> 
+        </section>
+
+      </section>
+      <br>
+      <br>
+      <br>
+      <section class="response-area">
+        <header>
+        <h3>Instructions below</h3>
+        <ol>
+          <li>You can begin a better mental place by a click of a button.</li>
+            <li>Each button will get you closer to peace.</li>
+            <li>You can do this!</li>
+            <li>Just click the button and  it your journey begins.</li>
+        </ol>
+      </header>
+      </section>
+    </section>
+  </main>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
     <script>
       document.getElementById("complimentButton").onclick = function () {
         axios.get("http://localhost:4000/api/compliment/")
             .then(function (response) {
               const data = response.data;
               alert(data);
-
             });
-          };
+      };
 
-              document.getElementById("fortuneButton").onclick = function () {
-          axios.get("http://localhost:4000/api/fortune/")
-          .then(function (response) {
+      document.getElementById("fortuneButton").onclick = function () {
+        axios.get("http://localhost:4000/api/fortune/")
+           .then(function (response) {
             const data = response.data;
             alert(data);   
 
         });
       };
-    
 
-      </script>
-
-
-<footer>
-  <p>© 2021 C. Robinson</p>
-</footer>
-<script src="index.js"></script>
+    </script>
+    <footer>
+      <p>© 2021 C. Robinson</p>
+    </footer>
+    <!-- <script src="index.js"></script> -->
   </body>
 </html>
