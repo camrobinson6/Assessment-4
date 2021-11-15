@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Back End Assessment</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="container">
+    <header>
+    <h1>Fortune or Compliment.....Choose</h1>
+  </header>
+    <br>
+    <h3>Looking for the right compliment, click below.</h3>
+    <button id="complimentButton">Get a Compliment</button>
+    <h3>Your fortune awaits you, click below.</h3>
+    <button id="fortuneButton">Get your Fortune</button>
+
+  <header>
+    <h1 class="encourage-title">Encouragement is what you need!</h1>
+  </header>
+  <main>
+    <section class="Request-Area">
+      <section class="request-type">
+        <br>
+        <h3>Messages of Encouragement: Go for it.</h3>
+        <button id="getEncouragement">Encouragement</button>
+        <button id="getInspiration">Inspiration</button>
+        <button id="getHelp">Help</button>
+        <br>
+        <section class="request-type">
+          <h3>Speak it into existance: You got this.</h3>
+          <button id="getParamSubmit">Submit</button>
+        </section>
+        <br>
+        <section class="request-type">
+        <button id="getQuerySubmit">Refresh</button> 
+        </section>
+
+      </section>
+      <br>
+      <br>
+      <br>
+      <section class="response-area">
+        <header>
+        <h3>Instructions below</h3>
+        <ol>
+          <li>You can begin a better mental place by a click of a button.</li>
+            <li>Each button will get you closer to peace.</li>
+            <li>You can do this!</li>
+            <li>Just click the button and  it your journey begins.</li>
+        </ol>
+      </header>
+      </section>
+    </section>
+  </main>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+    <script>
+      document.getElementById("complimentButton").onclick = function () {
+        axios.get("http://localhost:4000/api/compliment/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+
+      document.getElementById("fortuneButton").onclick = function () {
+        axios.get("http://localhost:4000/api/fortune/")
+           .then(function (response) {
+            const data = response.data;
+            alert(data);   
+
+        });
+      };
+
+    </script>
+    <footer>
+      <p>© 2021 C. Robinson</p>
+    </footer>
+    <!-- <script src="index.js"></script> -->
+  </body>
+</html>
